@@ -12,11 +12,11 @@ from selenium.common.exceptions import TimeoutException
 
 # Function to generate a random duration to watch the video
 def random_duration():
-    return random.randint(100, 6000)  # Adjust this range according to your preference
+    return random.randint(50, 300)  # Adjust this range according to your preference time in seconds
 
 # Function to change IP address using a proxy
 def change_proxy(driver):
-    # You need to replace 'proxy_ip:port' with your proxy IP and port
+    # Random IP address will be used
     ip_addresses = [
         '158.178.241.45', '34.93.79.152', '35.185.196.38', '34.93.62.7', '47.74.12.139', '47.74.22.171', 
         '47.74.11.251', '47.74.5.150', '47.74.13.66', '47.74.5.233', '8.219.78.1', '47.91.14.62', '47.91.15.247', 
