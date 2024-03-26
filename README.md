@@ -1,4 +1,4 @@
-# Selenium IP Address Changing and YouTube Watching Script
+# Python IP Address Changing and YouTube Watching Script Using Selenium
  This Python script uses Selenium to watch a YouTube video for a random duration and change the IP address using a proxy between each watch.
 
  # Setup
