@@ -3,11 +3,9 @@ import random
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.proxy import Proxy, ProxyType
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.proxy import Proxy, ProxyType
 from selenium.common.exceptions import TimeoutException
 
 # Function to generate a random duration to watch the video
@@ -39,13 +37,17 @@ def change_proxy(driver):
     proxy.http_proxy = f"{proxy_ip}:{proxy_port}"
     proxy.ssl_proxy = f"{proxy_ip}:{proxy_port}"
 
-    # Add proxy to Selenium webdriver
-    capabilities = webdriver.DesiredCapabilities.CHROME.copy()
-    proxy.add_to_capabilities(capabilities)
-
     # Restart the browser with new proxy
+    capabilities = webdriver.DesiredCapabilities.CHROME.copy()
+    capabilities['proxy'] = {
+        "httpProxy": proxy_ip + ":" + proxy_port,
+        "ftpProxy": proxy_ip + ":" + proxy_port,
+        "sslProxy": proxy_ip + ":" + proxy_port,
+        "proxyType": "MANUAL"
+    }
+
     driver.quit()
-    driver = webdriver.Chrome(service=Service("C:/chrome/chrome.exe"), desired_capabilities=capabilities)
+    driver = webdriver.Chrome(desired_capabilities=capabilities)
     return driver
 
 # Main function
