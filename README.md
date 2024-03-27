@@ -5,8 +5,7 @@
  1. Install Python 3.x from python.org.
  2. Install Selenium using pip:
  3. pip install selenium
- 4. Download the Chrome WebDriver from ChromeDriver - WebDriver for Chrome and place it in your PATH.
- 5. Install the Chrome browser if you haven't already.
+ 4. Install the Chrome or any other browser if you haven't already and change the browser in code
 
 # Usage
  Replace 'https://www.youtube.com/watch?v=Youtube_vidoe_Id' with the YouTube video link you want to watch in the video_link variable.
